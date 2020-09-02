@@ -2,6 +2,7 @@ package com.ericpinto.posts.config;
 
 import com.ericpinto.posts.domain.model.Post;
 import com.ericpinto.posts.domain.model.User;
+import com.ericpinto.posts.domain.model.dto.AuthorDTO;
 import com.ericpinto.posts.repository.PostRepository;
 import com.ericpinto.posts.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +34,11 @@ public class Instantiation implements CommandLineRunner {
         User regis = new User(null, "Régis Pinto", "regis@gmail.com");
         User melania = new User(null, "Melânia", "mel@gmail.com");
 
-        Post post1 = new Post(null, simpleDateFormat.parse("21/03/2018"), "Partiu viagem", "Vou viajar para SP abraços!", eric);
-        Post post2 = new Post(null, simpleDateFormat.parse("23/03/2018"), "Bom dia", "Acordei feliz", eric);
-
         userRepository.insert(Arrays.asList(eric, regis, melania));
+
+        Post post1 = new Post(null, simpleDateFormat.parse("21/03/2018"), "Partiu viagem", "Vou viajar para SP abraços!", new AuthorDTO(eric));
+        Post post2 = new Post(null, simpleDateFormat.parse("23/03/2018"), "Bom dia", "Acordei feliz", new AuthorDTO(eric));
+
         postRepository.insert(Arrays.asList(post1, post2));
     }
 }
