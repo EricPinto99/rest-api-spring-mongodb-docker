@@ -1,5 +1,6 @@
 package com.ericpinto.posts.controllers;
 
+import com.ericpinto.posts.domain.model.Post;
 import com.ericpinto.posts.domain.model.User;
 import com.ericpinto.posts.domain.model.dto.UserDTO;
 import com.ericpinto.posts.domain.services.UserService;
@@ -27,9 +28,9 @@ public class UserController {
     }
 
     @GetMapping(value ="/{id}")
-    public ResponseEntity<User> findById(@PathVariable String id){
+    public ResponseEntity<UserDTO> findById(@PathVariable String id){
         User obj = userService.findById(id);
-        return ResponseEntity.ok().body(obj);
+        return ResponseEntity.ok().body(new UserDTO(obj));
     }
 
     @PostMapping
@@ -52,5 +53,11 @@ public class UserController {
         obj.setId(id);
         obj = userService.update(obj);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value ="/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User obj = userService.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
     }
 }
