@@ -1,4 +1,4 @@
-package com.ericpinto.posts.domain.model.dto;
+package com.ericpinto.posts.dto;
 
 import com.ericpinto.posts.domain.model.User;
 import lombok.Getter;

@@ -2,7 +2,7 @@ package com.ericpinto.posts.controllers;
 
 import com.ericpinto.posts.domain.model.Post;
 import com.ericpinto.posts.domain.model.User;
-import com.ericpinto.posts.domain.model.dto.UserDTO;
+import com.ericpinto.posts.dto.UserDTO;
 import com.ericpinto.posts.domain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

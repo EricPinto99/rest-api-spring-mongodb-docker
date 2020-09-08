@@ -1,7 +1,7 @@
 package com.ericpinto.posts.domain.services;
 
 import com.ericpinto.posts.domain.model.User;
-import com.ericpinto.posts.domain.model.dto.UserDTO;
+import com.ericpinto.posts.dto.UserDTO;
 import com.ericpinto.posts.domain.services.exception.ObjectNotFoundException;
 import com.ericpinto.posts.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
